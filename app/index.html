@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Kitchen Table Ledger — a household budget site</title>
+<meta name="description" content="One household's shared money, kept at the kitchen table: November 2026 income, spending, budgets, bills, savings goals and reports for the Alvarez family.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#/">The Kitchen Table <span>Ledger</span></a>
+  <span class="household-line"></span>
+  <nav class="nav" aria-label="Sections">
+    <a class="nav-link" href="#/">Dashboard</a>
+    <a class="nav-link" href="#/transactions">Transactions</a>
+    <a class="nav-link" href="#/budgets">Budgets</a>
+    <a class="nav-link" href="#/bills">Bills</a>
+    <a class="nav-link" href="#/goals">Savings goals</a>
+    <a class="nav-link" href="#/reports">Reports</a>
+  </nav>
+</header>
+<main id="page"></main>
+<footer>
+  <p>The Kitchen Table Ledger — the Alvarez household's money book for November 2026. Changes you make are saved in this browser only.</p>
+  <p><button type="button" id="reset-demo">Reset November to the family's real figures</button> · <span id="year"></span></p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

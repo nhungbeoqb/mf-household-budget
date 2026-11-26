@@ -1,0 +1,335 @@
+/* The Kitchen Table Ledger — warm paper, ledger green, tomato orange.
+   One stylesheet for the whole site. Large type, high contrast, phone-first. */
+:root {
+  --paper: #fff7e9;
+  --card: #fffdf7;
+  --ink: #2a2118;
+  --muted: #6b5d4f;
+  --line: #e8dcc8;
+  --green: #1e5b44;
+  --green-dark: #143d2e;
+  --orange: #e86a33;
+  --gold: #e9b44c;
+  --red: #c0392b;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+/* --- header ---------------------------------------------------------------- */
+.topbar {
+  background: var(--green-dark);
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 22px;
+}
+.brand {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+}
+.brand span { color: var(--gold); }
+.household-line { font-size: 14px; color: #cfe3d6; }
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-left: auto;
+}
+.nav-link {
+  color: #eaf3ec;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+.nav-link:hover { background: rgba(255, 255, 255, 0.14); }
+.nav-link.active { background: var(--gold); color: var(--green-dark); }
+
+/* --- layout ---------------------------------------------------------------- */
+main { max-width: 1020px; margin: 0 auto; padding: 8px 20px 40px; }
+.hero { padding: 26px 4px 8px; }
+.hero.slim { padding-top: 18px; }
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--orange);
+  margin: 0 0 6px;
+}
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 44px;
+  line-height: 1.08;
+  margin: 0 0 10px;
+  color: var(--green-dark);
+}
+.hero.slim h1 { font-size: 36px; }
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 0 0 8px;
+  color: var(--green-dark);
+}
+.lede { font-size: 19px; max-width: 62ch; margin: 0 0 8px; }
+.today { color: var(--muted); font-size: 15px; margin: 0; }
+p { margin: 0 0 12px; }
+a { color: var(--green); }
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin: 16px 0;
+  box-shadow: 0 2px 0 rgba(42, 33, 24, 0.05);
+}
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+.two-col .panel { margin: 8px 0; }
+.goals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+.goal-card { margin: 8px 0; }
+
+/* --- money cards ------------------------------------------------------------ */
+.money-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 18px 0 6px;
+}
+.money-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 6px solid var(--green);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+.money-card.out { border-top-color: var(--orange); }
+.money-card.save { border-top-color: var(--gold); }
+.money-card.left { border-top-color: #3a6ea5; }
+.money-label { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+.money-value { font-family: Georgia, serif; font-size: 38px; line-height: 1.15; color: var(--green-dark); }
+.money-note { font-size: 14px; color: var(--muted); }
+
+/* --- bars ------------------------------------------------------------------- */
+.bar {
+  height: 14px;
+  background: #f0e6d2;
+  border-radius: 999px;
+  overflow: hidden;
+  flex: 1;
+  min-width: 60px;
+}
+.bar-fill { height: 100%; border-radius: 999px; }
+.mini-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+}
+.mini-row:last-child { border-bottom: 0; }
+.mini-name { flex: 0 0 220px; font-weight: 600; }
+.mini-amount { font-weight: 700; white-space: nowrap; }
+.mini-amount.plus { color: var(--green); }
+.due { color: var(--muted); font-size: 14px; white-space: nowrap; }
+
+/* --- buttons & forms -------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  background: var(--card);
+  color: var(--green-dark);
+  border: 2px solid var(--green);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: #eef5ef; }
+.btn.primary { background: var(--green); color: #fff; }
+.btn.primary:hover { background: var(--green-dark); }
+.btn.small { padding: 5px 12px; font-size: 14px; }
+.btn.danger { border-color: var(--red); color: var(--red); }
+.btn.danger:hover { background: #fbeae8; }
+
+label { font-weight: 600; font-size: 15px; display: block; }
+input, select {
+  font: inherit;
+  font-size: 16px;
+  padding: 9px 11px;
+  border: 2px solid #d8cbb2;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--ink);
+  width: 100%;
+}
+input:focus, select:focus { outline: 3px solid var(--gold); border-color: var(--green); }
+.tx-form {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  gap: 12px;
+  align-items: end;
+}
+.form-actions { display: flex; gap: 8px; }
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: end;
+  margin-bottom: 8px;
+}
+.filter-row label { flex: 1 1 180px; }
+.filter-row .count { font-size: 15px; color: var(--muted); padding-bottom: 10px; }
+.goal-form { display: flex; gap: 10px; align-items: end; margin-top: 12px; }
+.goal-form label { flex: 1; }
+
+/* --- transactions ----------------------------------------------------------- */
+.tx-row {
+  display: grid;
+  grid-template-columns: 92px 1fr auto auto;
+  gap: 14px;
+  align-items: start;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+.tx-row:last-child { border-bottom: 0; }
+.tx-date { font-weight: 700; color: var(--muted); font-size: 15px; padding-top: 2px; }
+.tx-label { font-weight: 700; }
+.tx-note { color: var(--muted); font-size: 14px; }
+.tx-amount { font-weight: 700; font-size: 18px; white-space: nowrap; }
+.tx-amount.plus { color: var(--green); }
+.tx-amount.save { color: var(--green); }
+.tx-actions { display: flex; gap: 6px; }
+.chip {
+  display: inline-block;
+  background: color-mix(in srgb, var(--chip) 14%, #fff);
+  color: var(--ink);
+  border: 1px solid var(--chip);
+  border-radius: 999px;
+  padding: 1px 10px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+.empty { color: var(--muted); font-style: italic; }
+
+/* --- budgets ---------------------------------------------------------------- */
+.budget-list { margin-top: 14px; }
+.budget-row { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.budget-row:last-child { border-bottom: 0; }
+.budget-row.over .budget-name { color: var(--red); }
+.budget-head { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 6px; }
+.budget-foot { display: flex; justify-content: space-between; color: var(--muted); font-size: 14px; margin-top: 5px; }
+
+/* --- bills ------------------------------------------------------------------ */
+.bill-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 16px;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+.bill-row:last-child { border-bottom: 0; }
+.bill-row.paid { opacity: 0.72; }
+.bill-name { font-weight: 700; }
+.bill-meta { color: var(--muted); font-size: 14px; }
+.bill-when { font-weight: 700; white-space: nowrap; }
+.bill-when.soon { color: var(--orange); }
+.bill-amount { font-weight: 700; font-size: 18px; white-space: nowrap; }
+
+/* --- goals ------------------------------------------------------------------ */
+.goal-nums { display: flex; justify-content: space-between; align-items: baseline; margin: 6px 0; }
+.goal-saved { font-family: Georgia, serif; font-size: 30px; color: var(--green-dark); }
+.goal-pct { color: var(--muted); font-size: 15px; margin: 8px 0 0; }
+.badge {
+  background: var(--gold);
+  color: var(--green-dark);
+  border-radius: 999px;
+  padding: 2px 12px;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  vertical-align: middle;
+}
+.goal-card.reached { border: 2px solid var(--gold); }
+
+/* --- reports ---------------------------------------------------------------- */
+.chart { width: 100%; height: auto; display: block; }
+.chart-label { font-size: 15px; fill: var(--ink); font-weight: 600; }
+.chart-value { font-size: 15px; fill: var(--ink); font-weight: 700; }
+.chart-value-in { font-size: 15px; fill: #fff; font-weight: 700; }
+.chart-limit { font-size: 13px; fill: var(--muted); }
+.chart-axis { font-size: 13px; fill: var(--muted); }
+.chart-grid { stroke: #e8dcc8; stroke-width: 1; }
+.chart-note { color: var(--muted); font-size: 14px; margin: 6px 0 0; }
+.takeaways li { margin-bottom: 8px; font-size: 18px; }
+.note { color: var(--muted); font-size: 15px; }
+
+/* --- footer ----------------------------------------------------------------- */
+footer {
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+  padding: 18px 20px 30px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+footer button {
+  background: none;
+  border: none;
+  color: var(--green);
+  font: inherit;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* --- phone ------------------------------------------------------------------ */
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  h1 { font-size: 32px; }
+  .hero.slim h1 { font-size: 29px; }
+  .lede { font-size: 17px; }
+  .money-grid { grid-template-columns: 1fr 1fr; }
+  .money-value { font-size: 30px; }
+  .two-col, .goals-grid { grid-template-columns: 1fr; }
+  .tx-form { grid-template-columns: 1fr 1fr; }
+  .tx-row { grid-template-columns: 70px 1fr auto; }
+  .tx-actions { grid-column: 2 / 4; }
+  .mini-name { flex-basis: 150px; }
+  .bill-row { grid-template-columns: 1fr auto; }
+  .bill-actions { grid-column: 1 / 3; }
+  .brand { font-size: 19px; }
+  .nav { margin-left: 0; }
+  main { padding: 4px 14px 32px; }
+  .panel { padding: 16px; }
+}
